@@ -1,6 +1,5 @@
 def pascal_triangle(n):
     try:
-        n = int(n)
         if n <= 0:
             return []
 
