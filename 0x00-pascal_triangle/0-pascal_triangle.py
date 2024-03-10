@@ -1,17 +1,22 @@
-def pascal_triangle(n):
-    try:
-        if n <= 0:
-            return []
+#!/usr/bin/python3
+"""Pascal's Triangle"""
 
-        triangle = [[1]]
-        for i in range(1, n):
-            row = [1] #initialise a row with 1 as first value for each row
-            for j in range(1, i):#loop for values inside the row
-                value = triangle[i - 1][j - 1] + triangle[i - 1][j]
-                row.append(value)
-            row.append(1)
-            triangle.append(row)
-        return triangle
-    except ValueError :
-        print("Invalid input: n must be an integer.")
+
+def pascal_triangle(n):
+    """A function that returns a list of integers"""
+    if n <= 0:
         return []
+
+    # Intialize pascal's triangle with the first row
+    triangle = [[1]]
+
+    # Generate other rows
+    for i in range(1, n):
+        row = [1]
+        for j in range(1, i):
+            row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
+
+        row.append(1)
+        triangle.append(row)
+
+    return triangle
