@@ -13,7 +13,7 @@ def minOperations(n: float) -> int:
     list = []
     while n > 1:
         while n % divisor == 0:
-            list.append(divisor) 
+            list.append(divisor)
             n = n / divisor
         divisor += 1
     minimum = sum(list)
