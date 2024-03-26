@@ -7,7 +7,10 @@ import signal
 
 def validate_line(line):
     """validate our ip address"""
-    pattern = r"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - \[.*\] \"GET \/projects\/260 HTTP\/1\.1\" (\d+) (\d+)"
+    pattern = (
+        r"(\d+\.\d+\.\d+\.\d+) - \[.*\] \"GET /projects/260 HTTP/1\.1\" "
+        r"(\d+) (\d+)"
+    )
     matching = re.match(pattern, line)
     if matching:
         status_code = matching.group(2)
@@ -15,12 +18,14 @@ def validate_line(line):
         return [status_code, file_size]
     return None
 
+
 def print_metrics(status, f_size):
     """print outpout"""
-    print(f"File size: {f_size}") 
+    print(f"File size: {f_size}")
     for key, value in status.items():
-        if value > 0 :
+        if value > 0:
             print(f"{key}: {value}")
+
 
 def signal_handler(sig, frame):
     """signalling when ctrl+c"""
@@ -33,9 +38,9 @@ def main():
     line_done = 0
     global status_codes, total_file_size
     status_codes = {
-        "200": 0, "301": 0, "400" : 0,
-        "401" : 0, "403": 0, "404": 0,
-        "405": 0,"500": 0
+        "200": 0, "301": 0, "400": 0,
+        "401": 0, "403": 0, "404": 0,
+        "405": 0, "500": 0
         }
     total_file_size = 0
     signal.signal(signal.SIGINT, signal_handler)
@@ -50,5 +55,6 @@ def main():
     except KeyboardInterrupt:
         print_metrics(status_codes, total_file_size)
 
-if __name__ == "__main__" :
+
+if __name__ == "__main__":
     main()
