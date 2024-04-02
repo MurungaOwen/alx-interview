@@ -21,7 +21,6 @@ def validate_line(line):
 
 def print_metrics(status, f_size):
     """print outpout"""
-    print(f"File size: {f_size}")
     for key, value in status.items():
         if value > 0:
             print(f"{key}: {value}")
@@ -29,7 +28,7 @@ def print_metrics(status, f_size):
 
 def signal_handler(sig, frame):
     """signalling when ctrl+c"""
-    print_metrics(status_codes, total_file_size)
+    # print_metrics(status_codes, total_file_size)
     sys.exit(0)
 
 
@@ -51,6 +50,7 @@ def main():
             status_codes[result[0]] += 1
             line_done += 1
             if line_done % 10 == 0:
+                print(f"File size: {total_file_size}")
                 print_metrics(status_codes, total_file_size)
     except KeyboardInterrupt:
         print_metrics(status_codes, total_file_size)
