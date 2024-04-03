@@ -1,7 +1,5 @@
-#!/usr/bin/python
-"""
-URF_8 validation
-"""
+#!/usr/bin/python3
+"""defines the functions to validate utf-8"""
 
 
 def validUTF8(data):
