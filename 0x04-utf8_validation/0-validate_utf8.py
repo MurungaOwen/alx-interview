@@ -7,10 +7,6 @@ URF_8 validation
 def validUTF8(data):
     """
     validates for UTF characters
-    params:
-        data which is a list of integers
-    return:
-        True if valid Utf
     """
     bytes_for_following = 0
 
