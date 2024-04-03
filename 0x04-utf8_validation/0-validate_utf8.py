@@ -26,4 +26,5 @@ def validUTF8(data):
             if byte >> 6 != 0b10:  # check for next item in list
                 return False
             bytes_for_following -= 1
+            
     return True
