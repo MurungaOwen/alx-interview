@@ -5,9 +5,7 @@ URF_8 validation
 
 
 def validUTF8(data):
-    """
-    validates for UTF characters
-    """
+    """validates for UTF characters"""
     bytes_for_following = 0
 
     for byte in data:
@@ -22,4 +20,4 @@ def validUTF8(data):
             if byte >> 6 != 0b10:
                 return False
             bytes_for_following -= 1
-    return True
+    return bytes_for_following == 0
