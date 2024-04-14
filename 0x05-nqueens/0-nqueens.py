@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""the N queen puzzle challenge"""
+"""N queens"""
 import sys
 
 
 def print_board(board, n):
-    """Print allocated positions to the queen"""
+    """our board"""
     b = []
 
     for i in range(n):
@@ -15,12 +15,12 @@ def print_board(board, n):
 
 
 def is_position_safe(board, i, j, r):
-    """Checks if the position is safe for the queen"""
+    """Checks if the position is safe"""
     return board[i] in (j, j - i + r, i - r + j)
 
 
 def safe_positions(board, row, n):
-    """Find all safe positions where the queen can be allocated"""
+    """Find all safe positions """
     if row == n:
         print_board(board, n)
 
@@ -36,7 +36,7 @@ def safe_positions(board, row, n):
 
 
 def create_board(size):
-    """Generates the board"""
+    """Generates board"""
     return [0 * size for i in range(size)]
 
 
