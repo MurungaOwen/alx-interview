@@ -1,0 +1,18 @@
+{
+  "name": "0x06-starwars_api",
+  "devDependencies": {
+    "semistandard": "*"
+  },
+  "version": "1.0.0",
+  "description": "Write a script that prints all characters of a Star Wars movie:",
+  "main": "0-starwars_characters.js",
+  "scripts": {
+    "test": "semistandard && node 0-starwars_characters.js"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
